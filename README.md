@@ -50,3 +50,6 @@ Yes, It is this Easy. It is just like Svelte Stores but you give store id also w
 
 # Contributions and Issues
 If you encounter any issues or bugs with CachedSvelteStores, please feel free to create a GitHub issue in the project repository. Additionally, contributions in the form of pull requests are always welcome and appreciated.
+
+# License
+svelte-cached-store is licensed under the MIT license. See the LICENSE file for more information.
