@@ -1,58 +1,52 @@
-# create-svelte
+# svelte-cached-store
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+svelte-cached-store is an npm library for Svelte which you can use to automatically cache Stores to localstorage as they update. This makes it easy to persist store values across sessions, and decrease loading time.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+# Installation
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install svelte-cached-store
 ```
 
-## Developing
+# Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you have installed the Library you can start using right away.
+The Usage is very similar to Svelte original writable Stores
 
-```bash
-npm run dev
+```html
+<script lang="ts">
+    // Import it BRUH
+    import { cachedwritable } from "svelte-cached-store";
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+    // Format
+    const storeName = cachedwritable<type>(value, id)
+
+    // Example
+    const testStore = cachedwritable<string>("bruh", "my.testStore")
+
+    // Setting Value
+    testStore.set("ok")
+
+    // Subscribing to Store
+    testStore.subscribe((value) => {
+        console.log(value)
+    })
+    // OR the Svelte Way
+    $: console.log($testStore)
+</script>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Explanation
 
-## Building
+- `type`: Type of the data you will store in the Store.
 
-To build your library:
+- `value`: The Default value of the Store when the cached value is 
+not found.
 
-```bash
-npm run package
-```
+- `id`: A unique identifier for the writable store. This will be used as the key to store and retrieve the value from the browser's local storage.
 
-To create a production version of your showcase app:
+# Done
+Yes, It is this Easy. It is just like Svelte Stores but you give store id also with it
 
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+# Contributions and Issues
+If you encounter any issues or bugs with CachedSvelteStores, please feel free to create a GitHub issue in the project repository. Additionally, contributions in the form of pull requests are always welcome and appreciated.

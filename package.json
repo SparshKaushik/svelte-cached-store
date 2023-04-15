@@ -1,5 +1,5 @@
 {
-	"name": "cachedstores",
+	"name": "svelte-cached-store",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
@@ -7,7 +7,6 @@
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"prepublishOnly": "npm run package",
-		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
@@ -29,7 +28,6 @@
 		"svelte": "^3.54.0"
 	},
 	"devDependencies": {
-		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@sveltejs/package": "^2.0.0",
