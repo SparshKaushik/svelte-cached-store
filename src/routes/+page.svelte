@@ -1,10 +1,16 @@
 <script lang="ts">
 	import { cachedwritable } from "$lib";
 
-    const testStore = cachedwritable<string>("bruh", "testStore")
+    const testStore = cachedwritable<{
+        bruh: string
+    }>({
+        bruh: "bruh"
+    }, "testStore")
 
     setTimeout(()=>{
-        testStore.set("ok")
+        testStore.set({
+            bruh: "ok"
+        })
     }, 1000)
 
     testStore.subscribe((value) => {
@@ -12,4 +18,4 @@
     })
 </script>
 
-<h1>{$testStore}</h1>
+<h1>{JSON.stringify($testStore)}</h1>

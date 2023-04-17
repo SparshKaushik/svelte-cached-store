@@ -23,7 +23,7 @@ export function cachedwritable<type>(value: type, id: string) {
     }
     const newStore = writable<type>(value)
     newStore.subscribe((value) => {
-        browser && window.localStorage.setItem(id, String(value))
+        browser && window.localStorage.setItem(id, JSON.stringify(value))
     })
     return newStore
 }
