@@ -16,7 +16,7 @@ export function cachedwritable<type>(value: type, id: string) {
                 // @ts-ignore
                 value = String(window.localStorage.getItem(id)!)
                 break;
-            case "object":
+            default:
                 value = JSON.parse(window.localStorage.getItem(id)!)
                 break;
         }
