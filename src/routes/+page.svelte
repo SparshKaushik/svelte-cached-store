@@ -1,20 +1,14 @@
 <script lang="ts">
 	import { cachedwritable } from "$lib";
 
-    const testStore = cachedwritable<{
-        bruh: string
-    }>({
-        bruh: "bruh"
-    }, "testStore")
+    const testStore = cachedwritable<boolean>(false, "testStore")
 
     setTimeout(()=>{
-        testStore.set({
-            bruh: "ok"
-        })
+        testStore.set(false)
     }, 1000)
 
     testStore.subscribe((value) => {
-        console.log(value)
+        // console.log(value)
     })
 </script>
 
