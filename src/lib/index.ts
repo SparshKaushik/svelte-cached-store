@@ -9,6 +9,8 @@ export function cachedwritable<type>(value: type, id: string) {
                 value = Number(window.localStorage.getItem(id)!)
                 break;
             case "boolean":
+                // @ts-ignore
+                value = window.localStorage.getItem(id)
                 break;
             case "string":
                 // @ts-ignore
